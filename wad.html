@@ -1,0 +1,154 @@
+<doctype html!>
+<html>
+<head>
+<title>Gallery</title>
+<meta charset="utf-8">
+<link href="dist/bootstrap.min.css" rel="stylesheet" type="text/css">
+<!--coustom css-->
+<link href="dist/style.css" rel="stylesheet" type="text/css"/>
+<link href="dist/wad.css"rel="stylesheet" type="text/css"/>
+<!--default-js-->
+<script src="dist/jquery-2.1.4.min.js"></script>
+<!--bootstrap-js-->
+<script src="dist/bootstrap.min.js"></script>        
+
+		
+	</head>
+	<body>
+<div id="cococo">
+  <div class="header">
+  <nav class="navbar navbar-default">
+	<div class="container">
+	  <div class="navbar-header">
+		<div class="logo">
+		<a class="navbar-brand" href="index.html">xxx</a>
+		</div>
+	  </div>
+		<div class="collapse navbar-collapse">
+		<ul class="nav navbar-nav cl-effect-2 active_hover">
+			<li><a href="index.html"><span data-hover="主页">主页</span></a></li>
+			<li><a href="#"><span data-hover="目的地">目的地</span></a></li>
+			<li><a href="#"><span data-hover="推荐">推荐</span></a></li>
+			<li><a href="#"><span data-hover="景区">景区</span></a></li>
+			<li><a href="#"><span data-hover="美食" class="active">美食</span></a></li>
+		</ul>
+		<ul class="form_acess">
+			<form class="re-disgn1">
+			<input type="text" name="s" class="textbox" value="搜    索" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '搜    索';}">
+			<input type="submit" value="">
+			</form>
+		</ul>
+		</div><!-- /.navbar-collapse -->
+	    <div class="clearfix"></div>
+	</div><!-- /.container-fluid -->
+  </nav>
+</div>
+
+
+
+   <div class="tuijian">
+      <div class="container">
+          <div class="c1"><h1><span id="a"></span></h1></div>
+          <div class="photo"><img id="photo0" src=""></div>
+          <div class="intro">
+                <span>别　　名：</span><span id="b"></span><br/><br/>
+                <span>口　　味：</span><span id="c"></span><br/><br/>
+                <span>地　　区：</span><span id="d"></span><br/><br/>
+                <span>推荐人群：</span><span id="e"></span><br/><br/>
+                <p id="f"></p>
+           </div>
+       </div>
+   </div>
+   
+
+<!--footer-->
+<div id="footer">
+   <div class="logo_label">
+     <div class="container">
+	    <div class="logo re_styl5">
+		   <a class="navbar-brand" href="#">xxx</a>
+	    </div>
+     </div>
+   </div>
+
+	<div class="footer">
+		<div class="container">
+			<div class="div1">
+				<div class="col-md-2 head">
+				<h3>get inspired</h3>
+				<ul class="inspired">
+					<li><a href="#">Head wear</a></li>
+					<li><a href="#">mens</a></li>
+					<li><a href="#">Unisex</a></li>
+					
+				</ul>
+				</div>
+				<div class="col-md-2 head">
+				<h3>support</h3>
+				<ul class="customer">
+					<li><a href="#">Terms</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Contact Us</a></li>
+				</ul>
+				</div>
+				<div class="col-md-2 head">
+				<h3>sites</h3>
+				<ul class="sites">
+					<li><a href="#">yyy.com</a></li>
+					<li><a href="#">zzz.com</a></li>
+					<li><a href="#">aaa.com</a></li>
+				</ul>
+				</div>
+				<div class="col-md-2 head">
+				<h3>contents</h3>
+				<ul class="contents">
+					<li><a href="#">Gallery</a></li>
+					<li><a href="#">Typo</a></li>
+				</ul>
+				</div>
+				<div class="col-md-4 mail_soc">
+					<div class="form_data">
+						<form>
+							<input class="mail2" type="text" name="email" value="E-mail" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'E-mail';}">
+							<input class="btn btn-default re_dsgn6" type="button" value="join">
+						</form>
+					</div>	
+				</div>
+			</div>
+        </div>
+  </div>
+</div>
+</div>
+	<script src="dist/arg-1.3.min.js"></script>
+<script type="text/javascript">
+var id=Arg('id')
+	$(function(){
+		$.ajax({
+			url:'wad/'+Arg('id'),
+			method:'get',
+			//dateType:'json',
+			success:function(data,status,xhr){
+				console.log(data);
+				$('#a').text(data[0].name);
+				$('#b').text(data[0].alias);
+				$('#c').text(data[0].taste);
+				$('#d').text(data[0].area);
+				$('#e').text(data[0].propose);
+				$('#f').text(data[0].history);
+				$('#photo0').attr('src',data[0].pic_1);
+			},
+			error:function(xhr,status,error){},
+		})
+			$.ajax({
+			url:'log/browse/wad/'+Arg('id'),
+			method:'get',
+			//dataType:'json',
+			success:function(data,status,xhr){},
+			error:function(xhr,status,error){},
+		})
+
+	})
+</script>
+</body>
+</html>
+				

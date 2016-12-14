@@ -1,0 +1,201 @@
+<doctype html!>
+<html>
+<head>
+<title>Gallery</title>
+<meta charset="utf-8">
+<link href="dist/bootstrap.min.css" rel="stylesheet" type="text/css">
+<!--coustom css-->
+<link href="dist/style.css" rel="stylesheet" type="text/css"/>
+<link href="dist/wad.css"rel="stylesheet" type="text/css"/>
+<!--default-js-->
+<script src="dist/jquery-2.1.4.min.js"></script>
+<!--bootstrap-js-->
+<script src="dist/bootstrap.min.js"></script>        
+
+		
+	</head>
+	<body>
+<div id="cococo">
+  <div class="header">
+  <nav class="navbar navbar-default">
+	<div class="container">
+	  <div class="navbar-header">
+		<div class="logo">
+		<a class="navbar-brand" href="index.html">xxx</a>
+		</div>
+	  </div>
+		<div class="collapse navbar-collapse">
+		<ul class="nav navbar-nav cl-effect-2 active_hover">
+			<li><a href="index.html"><span class="active" data-hover="主页">主页</span></a></li>
+			<li><a href="#"><span data-hover="目的地">目的地</span></a></li>
+			<li><a href="#"><span data-hover="推荐">推荐</span></a></li>
+			<li><a href="#"><span data-hover="景区">景区</span></a></li>
+			<li><a href="#"><span data-hover="美食">美食</span></a></li>
+		</ul>
+		<ul class="form_acess">
+			<form class="re-disgn1">
+			<input type="text" name="s" class="textbox" value="搜    索" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '搜    索';}" id="input">
+			<input type="submit" value="" id="search">
+			</form>
+		</ul>
+        
+		</div><!-- /.navbar-collapse -->
+	    <div class="clearfix"></div>
+	</div><!-- /.container-fluid -->
+  </nav>
+</div>
+<script type="text/javascript">
+$('#search').on('click',function(){
+    $.ajax({
+    url:'wad/search/counter',
+    type:'post',
+    data:{search:$('#input').val()},//后台查询数据
+    success:function(data,status,xhr){
+      if(data.counter==1){
+        window.location.href='wad.html?id='+data.id
+      }
+      else if(data.counter>1){
+        window.location.href='search.html?search='+$('#input').val()
+      }
+      else{alert('没有符合条件')}
+     },
+    
+  })
+})  
+</script>
+
+
+<div id="list"></div>
+
+<!--footer-->
+<div id="footer">
+   <div class="logo_label">
+     <div class="container">
+	    <div class="logo re_styl5">
+		   <a class="navbar-brand" href="#">xxx</a>
+	    </div>
+     </div>
+   </div>
+
+	<div class="footer">
+		<div class="container">
+			<div class="div1">
+				<div class="col-md-2 head">
+				<h3>get inspired</h3>
+				<ul class="inspired">
+					<li><a href="#">Head wear</a></li>
+					<li><a href="#">mens</a></li>
+					<li><a href="#">Unisex</a></li>
+					
+				</ul>
+				</div>
+				<div class="col-md-2 head">
+				<h3>support</h3>
+				<ul class="customer">
+					<li><a href="#">Terms</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Contact Us</a></li>
+				</ul>
+				</div>
+				<div class="col-md-2 head">
+				<h3>sites</h3>
+				<ul class="sites">
+					<li><a href="#">yyy.com</a></li>
+					<li><a href="#">zzz.com</a></li>
+					<li><a href="#">aaa.com</a></li>
+				</ul>
+				</div>
+				<div class="col-md-2 head">
+				<h3>contents</h3>
+				<ul class="contents">
+					<li><a href="#">Gallery</a></li>
+					<li><a href="#">Typo</a></li>
+				</ul>
+				</div>
+				<div class="col-md-4 mail_soc">
+					<div class="form_data">
+						<form>
+							<input class="mail2" type="text" name="email" value="E-mail" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'E-mail';}">
+							<input class="btn btn-default re_dsgn6" type="button" value="join">
+						</form>
+					</div>	
+				</div>
+			</div>
+        </div>
+  </div>
+</div>
+</div>
+<script src="dist/arg-1.3.min.js"></script>
+<script src="dist/handlebars-v4.0.5.js"></script>
+<script id="out" type="text/x-handlebars-template">
+  {{#each wad}}
+   <div class="col-lg-8">
+    <div class="panel">
+    <div class="pic"><img src="{{pic_1}}"/></div>
+    <ul>
+      <li>
+         <a href="search.html?id={{id}}">
+        菜品名称：{{name}}
+        </a>
+      </li>
+      <li><p>口味：{{taste}}</p></li>
+      <li><p>推荐人群：{{propose}}</p></li>
+      <li><p>地区：{{area}}</p></li>
+    </ul>   
+    </div>
+    </div>
+    {{/each}}
+ </script>
+ <script type="text/javascript">
+      var s=Arg('search');//主页#input.val的值
+      console.log(s);
+$(function(){     
+  if(s){
+    $.ajax({
+      url:'wad/search',
+      method:'post',
+      data:{search:s},   
+      dataType:'json',
+       success:function(data,status,xhr){
+        console.log('2');
+        var source = $('#out').html();
+        var template = Handlebars.compile(source);
+        var da = {'wad': data};
+        $('#list').html(template(da));
+
+     },
+        })
+     }
+     else{console.log('查询错误')}
+  })
+
+</script>
+
+<script type="text/javascript">
+  $('#search').on('click', function(){
+    console.log('1')
+
+    $.ajax({
+      url:'wad/search',
+      method:'post',
+      data: {search: $('#input').val()},
+      dataType:'json',
+      success:function(data,status,xhr){
+        console.log('2');
+        var source = $('#out').html();
+        var template = Handlebars.compile(source);
+        var da = {'wad': data};
+        $('#list').html(template(da));
+
+     },
+      error:function(xhr,status,error){
+        console.log(error);
+            }
+        });
+
+  });
+
+</script>
+</body>
+</html>
+				

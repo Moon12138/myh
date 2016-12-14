@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<!--[if lt IE 9]>
+  <script src="html5shiv/html5shiv.min.js"></script>
+  <script src="respond/respond.min.js"></script>
+  <![endif]-->
+<link type="text/css" href="dist/bootstrap.min.css" rel="stylesheet">
+<style>
+body{
+	background-image: url(img/img01.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-12 page-header">
+<h1 class="text-center">新用户注册</h1>
+</div>
+</div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="form-group">
+        <label for="account">账号</label>
+        <input type="text" class="form-control" id="account"/>
+      </div>
+      <div class="form-group">
+        <label for="password">密码</label>
+        <input type="password" class="form-control" id="password"/>
+      </div>
+      <div class="form-group">
+        <label for="password2">重复密码</label>
+        <input type="password" class="form-control" id="password2"/>
+      </div>
+      <button id="register" class="btn btn-primary btn-block" onclick="myFunction()">注册</button>
+    </div>
+  </div>
+</div>
+
+</body>
+<script type="text/javascript" >
+  var f=0;
+  var c=' ';
+  var d=' ';
+  var e=' ';
+  function myFunction(){
+    c=document.getElementById('account').value;
+    d=document.getElementById('password').value;
+    e=document.getElementById('password2').value;
+    if(c==''){alert('请输入用户名');return}
+    if(d==''){alert('请输入密码');return}
+    if(f==0&&d!=e){alert('请再次确认密码')}
+    if(f==0&&e==d){window.location.href='index-1.html'}
+
+  }
+</script>
+<script src="dist/jquery-2.1.4.min.js"></script>
+<script src="dist/bootstrap.min.js"></script>
+<script src="layer/layer.js"></script>
+<script src="dist/register.js"></script>
+<script type="text/javascript">
+  //  $(function(){
+  //    $('#form input').on('blur',function(){
+  //      console.log(this);
+  //      layer.msg('gggggggg');
+  //    })
+
+  $(function(){
+    $('#account').on('blur', function(){
+      console.log(this);
+      if($('#account').val()==''){
+        acc.style.display='block'}
+      else {acc.style.display='none'}
+    })
+  })
+  $(function(){
+    $('#password').on('blur', function(){
+      console.log(this);
+      if($('#password').val()==''){
+        ppp.style.display='block'}
+      else {ppp.style.display='none'}
+    })
+  })
+  $(function(){
+    $('#password2').on('blur', function(){
+      console.log(this);
+      if($('#password2').val()!=$('#password').val()||$('#password2').val()==''){
+        pas2.style.display='block'
+      }
+      else {pas2.style.display='none'}
+    })
+  })
+
+
+  function buttonStatus() {
+    var input = $('form input')
+    var flag = 1
+    for (var i = 0; i < input.length; i++) {
+      if (!input[i].value) {
+        flag = 0
+      }
+    }
+    if (flag == 1) {
+      $('#login').attr('disabled', false)
+    }
+    else {
+      $('#login').attr('disabled', true)
+    }
+  }
+  $(function(){
+    $('#form input').on('blur',function(){
+      buttonStatus()
+    })
+    $('#form input').on('keyup',function(){
+      buttonStatus()
+    })
+  })
+</script>
+</html>

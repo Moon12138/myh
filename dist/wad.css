@@ -1,0 +1,17 @@
+.tuijian{
+	padding: 80px;
+}
+.c1{
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 20px;
+	margin-left: auto;
+	height: 50px;
+	text-align: center;
+}
+.photo{float: left;padding: 30px;}
+.intro{
+	float: left;
+	padding: 30px;
+	margin-top: 50px;
+}

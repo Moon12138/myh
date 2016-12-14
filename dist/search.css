@@ -1,0 +1,275 @@
+h4, h5, h6,
+h1, h2, h3 {margin: 0;}
+ul, ol, li{margin: 0;}
+p {margin: 0;}
+body{
+	margin:0;
+	padding:0;
+}
+/*--fonts--*/
+@font-face{
+	font-family:'Oswald';
+	src: url(../fonts/Oswald/Oswald-Regular.ttf) format('truetype');
+}
+@font-face{
+	font-family: 'Hind';
+	src: url('../fonts/Hind/Hind-Regular.ttf') format('truetype');
+}
+body{
+	margin:0;
+	padding: 0;
+}
+h1,h2,h3{
+	font-family: 'Oswald', sans-serif;
+	margin:0;
+	padding: 0;
+}
+p{
+	font-family: 'Hind', sans-serif;
+	margin:0;
+	padding: 0;
+}
+/*--轮播--*/
+.carousel-caption {
+	right: 9%;
+	left: 47%;
+	padding-bottom: 0px;
+	text-align: left !important;
+	top: 33%;
+	bottom: 31%;
+	padding: 4%;
+	background: rgba(0, 0, 0, 0.38);
+	border-radius: 3px;
+}
+.carousel-caption p {
+	padding: 1em 0em;
+	font-family: 'Hind', sans-serif;
+	text-transform: capitalize;
+	font-weight: 100;
+	font-size: 15px;
+}
+a.right.carousel-control,a.left.carousel-control {
+	background: none !important;
+}
+.image-wid img {
+	width: 100%;
+}
+button.btn.btn-info.sld {
+	background: #FFAD11;
+	border: none;
+	outline: none;
+	border-radius: 2px;
+}
+button.btn.btn-info.sld:hover{
+	background: #ff4e4c;
+	transition:0.5s all;
+}
+.carousel-caption h3 {
+	font-family: 'Oswald', sans-serif;
+	text-transform: capitalize;
+	font-weight: 100;
+	font-size: 26px;
+}
+.carousel-control:focus, .carousel-control:hover{
+	text-decoration: none;
+	filter: alpha(opacity=90);
+	outline: ;
+	opacity: none;
+}
+
+
+
+
+/*--轮播下--*/
+.header-bottom {
+	background: #272727;
+	padding: 4em 0em;
+}
+.re_styl2 {
+	font-size: 30px;
+	color: #FF4E4C;
+}
+.txt-div h4 {
+	font-size: 20px;
+	color: #fff;
+	margin-bottom: 10px;
+	font-weight: 300;
+	font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
+}
+.txt-div p{
+	font-family: 'Hind', sans-serif;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 300;
+}
+.icn_div {
+	padding: 0 !important;
+	width: 10.666667%;
+}
+.txt-div {
+	padding: 0 !important;
+	width: 89.333333%;
+}
+.de-mar {
+	margin-bottom: 30px;
+}
+.de-mar:nth-child(2) {
+	margin: 0;
+}
+
+
+
+
+
+/*--翻转四图--*/
+.icons-grid {
+	padding: 3em 0em 0em;
+	text-align: center;
+}
+.re_styl3 {
+	margin-bottom: 12px;
+	color: #C8C7B2;
+	font-size: 28px;
+	background-color: #272727;
+	padding: 28px;
+	border-radius: 2px;
+	cursor: pointer;
+}
+.re_styl3:hover {
+	transform: rotateX(360deg);
+	transition: 0.8s all;
+}
+.txt-grid h4 {
+	font-family: 'Hind', sans-serif;
+	color: #000;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+/*-- 上推 --*/
+.images_grid {
+	padding: 3em 0em;
+	text-align: center;
+}
+.images_grid h3{
+	color:#272727;
+	text-transform: capitalize;
+	font-weight: 600;
+	margin-bottom: 45px;
+	font-size: 25px;
+}
+.grid {
+	padding: 0;
+	max-width: 90%;
+	margin: 0 auto;
+	list-style: none;
+	text-align: center;
+}
+
+.grid li {
+	display: inline-block;
+	width: auto;
+	margin: 0;
+	text-align: left;
+	position: relative;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 35px;
+	padding-left: 20px;
+}
+
+.grid figure {
+	margin: 0;
+	position: relative;
+}
+
+.grid figure img {
+	max-width: 100%;
+	display: block;
+	position: relative;
+}
+
+.grid figcaption {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 20px;
+	background: #272727;
+	color: #ed4e6e;
+}
+
+.grid figcaption h3 {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	font-size: 20px;
+	font-weight: 300;
+}
+
+.grid figcaption span:before {
+	content: 'by ';
+}
+
+.grid figcaption a {
+	text-align: center;
+	padding: 5px 10px;
+	border-radius: 2px;
+	display: inline-block;
+	background: #FF4E4C;
+	color: #fff;
+}
+.grid figcaption a:hover{
+	background: #ffad11;
+	transition:0.5s all;
+	padding: 5px 10px;
+	text-decoration: none;
+}
+.cs-style-2 figure img {
+	z-index: 10;
+	-webkit-transition: -webkit-transform 0.4s;
+	-moz-transition: -moz-transform 0.4s;
+	transition: transform 0.4s;
+}
+
+.no-touch .cs-style-2 figure:hover img,
+.cs-style-2 figure.cs-hover img {
+	-webkit-transform: translateY(-90px);
+	-moz-transform: translateY(-90px);
+	-ms-transform: translateY(-90px);
+	transform: translateY(-90px);
+}
+.pd {
+	padding: 0 !important;
+}
+.cs-style-2 figcaption {
+	height: 90px;
+	width: 100%;
+	top: auto;
+	bottom: 0;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.cs-style-2 figcaption a {
+	position: absolute;
+	right: 20px;
+	top: 30px;
+}
+.grid figcaption span {
+	font-family: 'Hind', sans-serif;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 300;
+	line-height: 1.8em;
+}
+
